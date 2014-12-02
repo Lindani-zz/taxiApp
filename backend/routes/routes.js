@@ -9,7 +9,7 @@ exports.show = function (req, res, next) {
 	req.getConnection(function(err, connection){
 		if (err) 
 			return next(err);
-		connection.query('SELECT firstName, routeName, fare FROM users, routes, users_routes where users.id=users_routes.userId and routes.id=users_routes.routeId and users.id = ?', 
+		connection.query('SELECT firstName, routeName, fare FROM users, routes, users_routes where users.id=users_routes.user_id and routes.id=users_routes.route_id and users.id = ?', 
 				[user_id], function(err, results) {
         	if (err) return next(err);
 
