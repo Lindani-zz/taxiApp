@@ -5,10 +5,12 @@ exports.show = function (req, res) {
 };
 
 exports.show = function (req, res, next) {
+	var user_id = req.params.user_id;
 	req.getConnection(function(err, connection){
 		if (err) 
 			return next(err);
-		connection.query('SELECT * from routes', [], function(err, results) {
+		connection.query('SELECT firstName, routeName, fare FROM users, routes, users_routes where users.id=users_routes.userId and routes.id=users_routes.routeId and users.id = ?', 
+				[user_id], function(err, results) {
         	if (err) return next(err);
 
         	res.send(results);

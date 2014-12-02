@@ -32,6 +32,16 @@ create table routes
 		geoLocationTripEnd char (30) not null,
 		primary key(id)
 	);
+	create table users_routes
+	(
+		id int not null auto_increment,
+		routeId int not null,
+		userId int not null,
+		
+		primary key(id)
+
+	);
+	
 	create table vehicles
 		(
 			id int not null auto_increment,
@@ -50,15 +60,28 @@ create table routes
 				capacity int not null, 
 				primary key (id)
 			);
-			create table employer
+			create table ownerEmployer
 				{
 					id int not null auto_increment,
 					employerName char (100) ,
 					employerlastName char (100) ,
-					employerContacts int not null,
+					employerContacts int ,
 					primary key (id)
 	
 				};
 
 
 );
+
+
+
+INSERT INTO `users_routes`(`routeId`, `userId`) VALUES (1,1);
+INSERT INTO `users_routes`(`routeId`, `userId`) VALUES (2,2);
+INSERT INTO `users_routes`(`routeId`, `userId`) VALUES (3,1);
+INSERT INTO `users_routes`(`routeId`, `userId`) VALUES (1,2);
+INSERT INTO `users_routes`(`routeId`, `userId`) VALUES (3,3);
+INSERT INTO `users_routes`(`routeId`, `userId`) VALUES (1,4);
+INSERT INTO `users_routes`(`routeId`, `userId`) VALUES (2,3);
+INSERT INTO `users_routes`(`routeId`, `userId`) VALUES (3,1);
+INSERT INTO `users_routes`(`routeId`, `userId`) VALUES (1,3);
+
