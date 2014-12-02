@@ -52,7 +52,7 @@ app.get('/users/edit/:id', users.get);
 app.post('/users/update/:id', users.update);
 
 
-app.get('/routes', routes.show);
+app.get('/routes/:user_id', routes.show);
 
 
 //start everything up
