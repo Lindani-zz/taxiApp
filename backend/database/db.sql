@@ -32,6 +32,7 @@ create table routes
 		geoLocationTripEnd char (30) not null,
 		primary key(id)
 	);
+	
 	create table users_routes
 	(
 		id int not null auto_increment,
@@ -54,10 +55,13 @@ create table routes
 			(
 				id int not null auto_increment,
 				geoLocationStart char (40) not null,
-				geoLocationStartTime timestamp,
+				dateTimeStart timestamp,
 				geoLocationEnd char (40) not null,
-				geoLocationEndTime timestamp,
-				capacity int not null, 
+				dateTimeEnd timestamp,
+				capacity int (100)not null, 
+				ownerID int (6) not null,
+				routeID int(6) not null,
+				status text,
 				primary key (id)
 			);
 			create table ownerEmployer
@@ -84,4 +88,5 @@ INSERT INTO `users_routes`(`routeId`, `userId`) VALUES (1,4);
 INSERT INTO `users_routes`(`routeId`, `userId`) VALUES (2,3);
 INSERT INTO `users_routes`(`routeId`, `userId`) VALUES (3,1);
 INSERT INTO `users_routes`(`routeId`, `userId`) VALUES (1,3);
+
 

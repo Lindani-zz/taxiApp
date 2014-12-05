@@ -7,7 +7,8 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     products = require('./routes/products'),
     users = require('./routes/users'),
-    routes = require('./routes/routes');
+    routes = require('./routes/routes'),
+    trips = require ('./routes/trips');
     
 
 
@@ -50,6 +51,12 @@ app.post('/users/register/add', users.register);
 app.get('/users/delete/:id', users.delete);
 app.get('/users/edit/:id', users.get);
 app.post('/users/update/:id', users.update);
+
+app.post('/trips/add', trips.add);
+
+app.post('/trips/start', trips.start_trip);
+app.post('/trips/end', trips.end_trip);
+app.get('/trips/today/:user_id', trips.today_trips);
 
 
 app.get('/routes/:user_id', routes.show);
